@@ -1,0 +1,65 @@
+﻿@model FlightSearchEngine.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Flight Search";
+}
+
+<h2>Flight Search Engine</h2>
+
+<form asp-controller="Flight" asp-action="SearchFlights" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label>Source</label>
+        <select asp-for="Source" asp-items="Model.SourceList" class="form-control">
+            <option value="">-- Select Source --</option>
+        </select>
+        <span asp-validation-for="Source" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Destination</label>
+        <select asp-for="Destination" asp-items="Model.DestinationList" class="form-control">
+            <option value="">-- Select Destination --</option>
+        </select>
+        <span asp-validation-for="Destination" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Number of Persons</label>
+        <input asp-for="NumberOfPersons" type="number" class="form-control" />
+        <span asp-validation-for="NumberOfPersons" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit"
+            formaction="@Url.Action("SearchFlights", "Flight")"
+                class="btn btn-success">
+            Search Flights Only
+        </button>
+
+        <button type="submit"
+            formaction="@Url.Action("SearchFlightsWithHotels", "Flight")"
+                class="btn btn-warning">
+            Search Flight + Hotel
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            var source = document.querySelector("[name='Source']").value;
+            var destination = document.querySelector("[name='Destination']").value;
+
+            if (source === destination && source !== "") {
+                alert("Source and Destination cannot be the same.");
+                e.preventDefault();
+            }
+        });
+    </script>
+}
