@@ -1,0 +1,76 @@
+# =========================
+# ASP.NET MVC / .NET / Visual Studio
+# =========================
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+out/
+publish/
+
+# VS cache / temp
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# Rider / VS Code
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs
+*.log
+logs/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# Test / coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+# ASP.NET generated
+wwwroot/lib/
+
+# Local app settings and secrets
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+
+# User-specific files
+*.rsuser
+*.DotSettings.user
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SQL Server local files (if any)
+*.mdf
+*.ldf
+
+# Node modules (if frontend tooling is added)
+node_modules/
+
+# Optional: uncomment if you keep generated screenshots or temp output
+# Screenshots/**/temp/
