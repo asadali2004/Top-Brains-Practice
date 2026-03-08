@@ -1,0 +1,62 @@
+﻿@model LibraryManagement.Models.Book
+
+@{
+    ViewData["Title"] = "Add New Book";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="bi bi-plus-circle"></i> Add New Book
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label fw-bold">
+                                <i class="bi bi-bookmark"></i> Title
+                            </label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter book title" required />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Author" class="form-label fw-bold">
+                                <i class="bi bi-person"></i> Author
+                            </label>
+                            <input asp-for="Author" class="form-control" placeholder="Enter author name" required />
+                            <span asp-validation-for="Author" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label fw-bold">
+                                <i class="bi bi-currency-dollar"></i> Price
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input asp-for="Price" class="form-control" placeholder="0.00" step="0.01" required />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="List" class="btn btn-outline-secondary me-md-2">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Save Book
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
